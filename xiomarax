@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lluvia de Amor para Xiomara</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #000;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-family: 'Arial', sans-serif;
+    }
+    h1 {
+      position: absolute;
+      z-index: 2;
+      font-size: 3em;
+      text-align: center;
+      color: #ff4d6d;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .drop {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: rgba(255, 77, 109, 0.7);
+      border-radius: 50%;
+      animation: fall 3s linear infinite;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>TE AMO XIOMARA ❤️</h1>
+  <audio autoplay loop>
+    <source src="https://www.dropbox.com/scl/fi/3g1hlp1g2mwqx17qlg92h/Sabanas-Blancas.mp3?rlkey=czuhzcl6mfm4wdr2id8i6sbkt&raw=1" type="audio/mp3">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+  <script>
+    function createDrop() {
+      const drop = document.createElement('div');
+      drop.classList.add('drop');
+      drop.style.left = Math.random() * 100 + 'vw';
+      drop.style.animationDuration = (2 + Math.random() * 2) + 's';
+      document.body.appendChild(drop);
+
+      setTimeout(() => {
+        drop.remove();
+      }, 3000);
+    }
+
+    setInterval(createDrop, 100);
+  </script>
+</body>
+</html>
